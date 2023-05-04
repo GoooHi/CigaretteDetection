@@ -1,0 +1,21 @@
+metric: COCO
+num_classes: 1
+
+TrainDataset:
+  name: COCODataSet
+  image_dir: train/JPEGImages
+  anno_path: train/voc_train.json
+  dataset_dir: dataset/Cigarrette_Detection
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  name: COCODataSet
+  image_dir: valid/JPEGImages
+  anno_path: valid/voc_valid.json
+  dataset_dir: dataset/Cigarrette_Detection
+  allow_empty: true
+
+TestDataset:
+  name: ImageFolder
+  anno_path: valid/voc_valid.json # also support txt (like VOC's label_list.txt)
+  dataset_dir: dataset/Cigarrette_Detection # if set, anno_path will be 'dataset_dir/anno_path'
